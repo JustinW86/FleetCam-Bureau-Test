@@ -587,6 +587,23 @@ function exportResults() {
     const { jsPDF } = window.jspdf;
     const doc = new jsPDF();
 
+    // FleetCam Branding Colors
+    const fleetCamBlue = [0, 102, 204];    // #0066CC
+    const fleetCamGray = [51, 51, 51];     // #333333
+    const fleetCamLightGray = [240, 240, 240]; // #F0F0F0
+    const successGreen = [0, 204, 102];    // #00CC66
+    const errorRed = [255, 77, 77];        // #FF4D4D
+
+    // Set modern font
+    doc.setFont("Helvetica");
+
+    // Header
+    doc.setFillColor(...fleetCamBlue);
+    doc.rect(0, 0, 210, 30, 'F');
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(18);
+    doc.text("FleetCam Bureau Agent Test Results", 10, 20);
+    
     // Calculate score
     let correctAnswers = 0;
     answers.forEach((answer) => {
@@ -596,54 +613,63 @@ function exportResults() {
     });
     const score = (correctAnswers / questions.length) * 100;
 
-    // Add title
-    doc.setFontSize(20);
-    doc.text("FleetCam Bureau Agent Test Results", 10, 20);
-
-    // Add agent information and total percentage
+    // Agent Info Section
+    doc.setFillColor(...fleetCamLightGray);
+    doc.rect(0, 30, 210, 30, 'F');
+    doc.setTextColor(...fleetCamGray);
     doc.setFontSize(12);
-    doc.text(`Agent Name: ${agentName}`, 10, 30);
-    doc.text(`Agent Email: ${agentEmail}`, 10, 40);
-    doc.text(`Total Score: ${score.toFixed(2)}% ${score >= 98 ? "😊 (Pass)" : "😢 (Fail)"}`, 10, 50);
+    doc.text(`Agent Name: ${agentName}`, 10, 40);
+    doc.text(`Agent Email: ${agentEmail}`, 10, 48);
+    doc.text(`Total Score: ${score.toFixed(2)}% ${score >= 98 ? "😊 (Pass)" : "😢 (Fail)"}`, 10, 56);
 
-    // Add results
-    let y = 60;
+    // Results Section
+    let y = 70;
     answers.forEach((answer, index) => {
         const questionIndex = currentQuestion - answers.length + index;
         const question = questions[questionIndex];
-        
-        // Question text
+
+        // Question Number and Text
+        doc.setFontSize(14);
+        doc.setTextColor(...fleetCamBlue);
+        doc.text(`Q${index + 1}`, 10, y);
         doc.setFontSize(12);
-        doc.text(`Question ${index + 1}: ${answer.question}`, 10, y);
-        
+        doc.setTextColor(...fleetCamGray);
+        doc.text(question.question, 20, y, { maxWidth: 170 });
+
         // Your Answer
         const selectedText = `Your Answer: ${question.options[answer.selected]}`;
-        if (parseInt(answer.selected) === answer.correct) {
-            doc.setFillColor(0, 255, 0); // Green for correct
-        } else {
-            doc.setFillColor(255, 0, 0); // Red for incorrect
-        }
-        doc.rect(10, y + 5, 190, 10, 'F'); // Background rectangle
-        doc.setTextColor(0, 0, 0); // Black text
-        doc.text(selectedText, 10, y + 12);
+        const isCorrect = parseInt(answer.selected) === answer.correct;
+        doc.setFillColor(...(isCorrect ? successGreen : errorRed));
+        doc.rect(20, y + 5, 170, 8, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.text(selectedText, 22, y + 11, { maxWidth: 166 });
 
-        // Correct Answer (always green)
+        // Correct Answer
         const correctText = `Correct Answer: ${question.options[answer.correct]}`;
-        doc.setFillColor(0, 255, 0); // Green for correct
-        doc.rect(10, y + 15, 190, 10, 'F'); // Background rectangle
-        doc.setTextColor(0, 0, 0); // Black text
-        doc.text(correctText, 10, y + 22);
+        doc.setFillColor(...successGreen);
+        doc.rect(20, y + 15, 170, 8, 'F');
+        doc.setTextColor(255, 255, 255);
+        doc.text(correctText, 22, y + 21, { maxWidth: 166 });
 
-        // Result and Time Taken (no highlight)
-        const isCorrect = parseInt(answer.selected) === answer.correct ? "Correct" : "Incorrect";
-        doc.text(`Result: ${isCorrect}`, 10, y + 32);
-        doc.text(`Time Taken: ${answer.timeTaken.toFixed(2)} seconds`, 10, y + 42);
+        // Time Taken
+        doc.setTextColor(...fleetCamGray);
+        doc.text(`Time Taken: ${answer.timeTaken.toFixed(2)} seconds`, 20, y + 29);
 
-        y += 50;
+        // Divider
+        doc.setDrawColor(...fleetCamLightGray);
+        doc.line(10, y + 35, 200, y + 35);
 
-        if (y > 280) {
+        y += 40;
+
+        if (y > 260) {
             doc.addPage();
-            y = 10;
+            // Add header on new pages
+            doc.setFillColor(...fleetCamBlue);
+            doc.rect(0, 0, 210, 30, 'F');
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(18);
+            doc.text("FleetCam Bureau Agent Test Results", 10, 20);
+            y = 40;
         }
     });
 
