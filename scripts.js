@@ -142,9 +142,9 @@ const questions = [
     correctAnswer: 0,
   },
   {
-    question: "What do you do if you recieve a Panic alarm on a Vehicle and you cannot reach the Client telephonically?",
+    question: "What do you do if you receive a Panic alarm on a Vehicle and you cannot reach the Client telephonically?",
     options: [
-      "Check the VVT and Tracking status, and then dispatch a SVR Team if needed while continueing to reach the Client",
+      "Check the VVT and Tracking status, and then dispatch a SVR Team if needed while continuing to reach the Client",
       "Discard the event.",
       "Send the Client a email.",
     ],
@@ -153,7 +153,7 @@ const questions = [
   {
     question: "What do you do if a Universal loaded truck enters a Illegal Coal Yard?",
     options: [
-      "Telephonically contact Universal role players and notifiy them while determining that the load came from NCC or NBC",
+      "Telephonically contact Universal role players and notify them while determining that the load came from NCC or NBC",
       "Discard the event.",
       "Post the Illegal Entry on the WhattsApp group.",
     ],
@@ -162,7 +162,7 @@ const questions = [
   {
     question: "An Adhoc Client calls in stating his vehicle has been stolen from his Depot, what steps do you take?",
     options: [
-      "Obtain all the nessasarry information on the vehicle, dispatch a SVR team, and when updating the Client on the next call Quote them the standard SVR rates",
+      "Obtain all the necessary information on the vehicle, dispatch a SVR team, and when updating the Client on the next call Quote them the standard SVR rates",
       "Inform the Client that they are an Adhoc Client and we cannot assist.",
       "Inform the Client that everything will be ok and that you will hand the SVR recovery over to another Station.",
     ],
@@ -226,7 +226,7 @@ const questions = [
     question: "An Irate Client calls into the Bureau stating that he needs a Tracking report ASAP and that he has been sending emails the entire day with no joy?",
     options: [
       "Calm the Client down and ask the Client to send another Email.",
-      "Calmly ask the Client to confirm the email address he has sent the requests throu to(As the email address might be wrong), Obtain the vehicle details, date and time period as well as his email address so you can generate the desired report and send it to them.",
+      "Calmly ask the Client to confirm the email address he has sent the requests through to (As the email address might be wrong), Obtain the vehicle details, date and time period as well as his email address so you can generate the desired report and send it to them.",
       "Calmly Send a email to Support or All Bureau Staff to assist.",
     ],
     correctAnswer: 1,
@@ -250,7 +250,7 @@ const questions = [
     correctAnswer: 1,
   },
   {
-    question: "You see a Driver driver smoking while driving, his load is LP Gas, what do you do?",
+    question: "You see a Driver smoking while driving, his load is LP Gas, what do you do?",
     options: [
       "You log the event on the Bureau portal.",
       "You inform the Client of your findings and log the event on the Bureau portal.",
@@ -297,8 +297,8 @@ const questions = [
   {
     question: "When a FleetCam Technician De-Installs a VVT, what does the FleetCam Bureau Agent have to check?",
     options: [
-      "All systems and Channels are fuctioning, GPS positioning, rename the registration number to state De-Installed next to the registration number.",
-      "Check all systems and Channels are fuctioning, and leave it on the Clients company profile.",
+      "All systems and Channels are functioning, GPS positioning, rename the registration number to state De-Installed next to the registration number.",
+      "Check all systems and Channels are functioning, and leave it on the Clients company profile.",
       "Tell the FleetCam Technician to hold on as it is shift change.",
     ],
     correctAnswer: 0,
@@ -315,7 +315,7 @@ const questions = [
   {
     question: "How to check unit storage and if its recording correctly?",
     options: [
-      "Right click on parimeter config on CMS, select recording, under recording select storage, where you can activate SD1 and SD 2.",
+      "Right click on parameter config on CMS, select recording, under recording select storage, where you can activate SD1 and SD 2.",
       "Ask the Technician if they have enabled it.",
       "Check VMS for the SD1 and SD2 storage icon appears on the HUD.",
     ],
@@ -325,26 +325,25 @@ const questions = [
     question: "How do you to flip/correct camera Angle.",
     options: [
       "Hold in Ctrl, alt and arrow on your key board.",
-      "Go into Parimeter config on CMS. select record setup, and select the desired camera to be flipped.",
-      "Right click on parimeter config on CMS, select recording, under recording select storage.",
+      "Go into Parameter config on CMS. select record setup, and select the desired camera to be flipped.",
+      "Right click on parameter config on CMS, select recording, under recording select storage.",
     ],
     correctAnswer: 1,
   },
-  // New Questions Start Here
   {
     question: "At what number are sats stable for a VVT?",
     options: ["32", "7", "8"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "What is the standard IO for a panic button?",
     options: ["IO2", "IO1", "IO3"],
-    correctAnswer: 1, // B
+    correctAnswer: 1,
   },
   {
     question: "What channels are the road and cab normally connected to?",
     options: ["ch1 and 2", "ch2 and 1", "ch3 and 4"],
-    correctAnswer: 0, // A
+    correctAnswer: 0,
   },
   {
     question: "On a standard 4ch camera install what are the cameras named?",
@@ -353,42 +352,42 @@ const questions = [
       "ROAD, CAB, R SIDE, L SIDE",
       "ROAD FACING, INCAB, R SIDE VIEW, L SIDE VIEW",
     ],
-    correctAnswer: 1, // B
+    correctAnswer: 1,
   },
   {
     question: "What is the standard IO for Security Box?",
     options: ["IO2", "IO1", "IO3"],
-    correctAnswer: 0, // A
+    correctAnswer: 0,
   },
   {
     question: "Which program do we try to get our reports from (as they have the most information)?",
     options: ["CMS", "VMS", "Bureau Portal"],
-    correctAnswer: 1, // B
+    correctAnswer: 1,
   },
   {
     question: "What do we use CMS for?",
     options: ["Cameras and footage", "Tracking and Reports", "Logging Events"],
-    correctAnswer: 0, // A
+    correctAnswer: 0,
   },
   {
     question: "What do we use VMS for?",
     options: ["Cameras and footage", "Tracking and Reports", "Logging Events"],
-    correctAnswer: 1, // B
+    correctAnswer: 1,
   },
   {
     question: "What do we use Bureau Portal for?",
     options: ["Cameras and footage", "Tracking and Reports", "Logging Events"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "What does it mean when the unit states 'no record' on the CMS program?",
     options: ["Storage is not working", "Cameras are not working", "All of the above"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "What does it mean when a vehicle is pink/purple on the CMS program?",
     options: ["Vehicle is idling", "Vehicle is ACC off", "GPS is invalid"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "What does it mean when you are asked to adjust or set the ignition on-off time?",
@@ -397,17 +396,17 @@ const questions = [
       "Set an alarm for ignition on and off",
       "Set the amount of time it takes for the unit to turn off after the ignition is turned off",
     ],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "What is the correct way to receive a request from a customer?",
     options: ["Via WhatsApp", "Via Phone call", "Via Email"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "What do you do when testing a unit but there is an issue such as camera not working or storage not working?",
     options: ["Fail the test", "Pass the test", "Tell the tech to fix the issues so that you can pass the test"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "What information would you require from a customer to download footage?",
@@ -416,12 +415,12 @@ const questions = [
       "Date, colour of the vehicle, model",
       "Driver name, make, model",
     ],
-    correctAnswer: 0, // A
+    correctAnswer: 0,
   },
   {
     question: "If a vehicle works Monday to Friday 8 to 5, how much footage would a 256GB SD card hold?",
     options: ["2 weeks", "A month", "2 days"],
-    correctAnswer: 1, // A
+    correctAnswer: 1,
   },
   {
     question: "If a vehicle is offline due to a severe accident, what would be the best way to get the footage?",
@@ -430,12 +429,12 @@ const questions = [
       "Ask the service controller to arrange a tech to pull the storage",
       "Load more data on the sim card",
     ],
-    correctAnswer: 1, // B
+    correctAnswer: 1,
   },
   {
     question: "Which software do we get the test ref from?",
     options: ["CMS", "VMS", "Bureau portal"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
   {
     question: "When a customer cannot view a vehicle on CMS, what would be required to assist them?",
@@ -444,12 +443,12 @@ const questions = [
       "Sim cell number to load data",
       "Software the customer is using",
     ],
-    correctAnswer: 0, // A
+    correctAnswer: 0,
   },
   {
     question: "What do you do when a Battery Tamper alarm comes into the Bureau portal?",
     options: ["Check to see if everything is ok", "Check, log and call", "Check and log"],
-    correctAnswer: 1, // B
+    correctAnswer: 1,
   },
   {
     question: "What do you do in a test if they are replacing or swapping out the VVT unit?",
@@ -458,7 +457,7 @@ const questions = [
       "Edit the device id",
       "Delete the VVT",
     ],
-    correctAnswer: 0, // A
+    correctAnswer: 0,
   },
   {
     question: "What is the purpose of a DT20D status?",
@@ -467,68 +466,67 @@ const questions = [
       "For the communicator to have a status on VMS",
       "To help it to report to CMS",
     ],
-    correctAnswer: 1, // B
-  },  {
+    correctAnswer: 1,
+  },
+  {
     question: "What does EMS mean?",
     options: [
       "Empire Meditation Skill",
       "Emergency Medical Services",
       "To help it to report to CMS",
     ],
-    correctAnswer: 1, // B
+    correctAnswer: 1,
   },
   {
     question: "What is a Teltonika used for?",
     options: ["Cameras", "Communication", "Tracking"],
-    correctAnswer: 2, // C
+    correctAnswer: 2,
   },
 ];
 
 function startTest() {
-  agentName = document.getElementById("agentName").value;
-  agentEmail = document.getElementById("agentEmail").value;
+    agentName = document.getElementById("agentName").value;
+    agentEmail = document.getElementById("agentEmail").value;
 
-  // Check if this agent has already taken the test
-  const takenAgents = JSON.parse(localStorage.getItem("takenAgents") || "[]");
-  if (takenAgents.includes(agentName)) {
-    alert("This agent has already taken the test. Only one attempt is allowed per agent.");
-    return;
-  }
+    const takenAgents = JSON.parse(localStorage.getItem("takenAgents") || "[]");
+    if (takenAgents.includes(agentName)) {
+        alert("This agent has already taken the test. Only one attempt is allowed per agent.");
+        return;
+    }
 
-  if (!agentName || !agentEmail) {
-    alert("Please enter both your name and email address.");
-    return;
-  }
+    if (!agentName || !agentEmail) {
+        alert("Please enter both your name and email address.");
+        return;
+    }
 
-  // Mark this agent as having taken the test
-  takenAgents.push(agentName);
-  localStorage.setItem("takenAgents", JSON.stringify(takenAgents));
+    takenAgents.push(agentName);
+    localStorage.setItem("takenAgents", JSON.stringify(takenAgents));
 
-  document.getElementById("signIn").style.display = "none";
-  document.getElementById("testContent").style.display = "block";
-  startTimer();
-  loadQuestion();
+    document.getElementById("signIn").style.display = "none";
+    document.getElementById("testContent").style.display = "block";
+    startTimer();
+    loadQuestion();
 }
 
 function startTimer() {
-  const timerElement = document.getElementById("timer");
-  const interval = setInterval(function () {
-    remainingTime -= 1000;
-    const minutes = Math.floor(remainingTime / 60000);
-    const seconds = Math.floor((remainingTime % 60000) / 1000);
-    timerElement.textContent = `Time Remaining: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+    const timerElement = document.getElementById("timer");
+    const interval = setInterval(function () {
+        remainingTime -= 1000;
+        const minutes = Math.floor(remainingTime / 60000);
+        const seconds = Math.floor((remainingTime % 60000) / 1000);
+        timerElement.textContent = `Time Remaining: ${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
 
-    if (remainingTime <= 0) {
-      clearInterval(interval);
-      finishTest();
-    }
-  }, 1000);
+        if (remainingTime <= 0) {
+            clearInterval(interval);
+            finishTest();
+        }
+    }, 1000);
 }
 
 function loadQuestion() {
-  const question = questions[currentQuestion];
-  const questionContainer = document.getElementById("questionContainer");
-  questionContainer.innerHTML = `
+    const question = questions[currentQuestion];
+    const questionContainer = document.getElementById("questionContainer");
+    questionContainer.innerHTML = `
         <h3>${question.question}</h3>
         <form id="questionForm">
             ${question.options
@@ -541,87 +539,96 @@ function loadQuestion() {
               .join("")}
         </form>
     `;
-  questionStartTime = Date.now();
+    questionStartTime = Date.now();
 }
 
 function nextQuestion() {
-  const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
-  if (selectedOption) {
-    const answerTime = (Date.now() - questionStartTime) / 1000; // Time in seconds
-    answers.push({
-      question: questions[currentQuestion].question,
-      selected: selectedOption.value,
-      correct: questions[currentQuestion].correctAnswer,
-      timeTaken: answerTime,
-    });
+    const selectedOption = document.querySelector(`input[name="q${currentQuestion}"]:checked`);
+    if (selectedOption) {
+        const answerTime = (Date.now() - questionStartTime) / 1000;
+        answers.push({
+            question: questions[currentQuestion].question,
+            selected: selectedOption.value,
+            correct: questions[currentQuestion].correctAnswer,
+            timeTaken: answerTime,
+        });
 
-    currentQuestion++;
-    if (currentQuestion < questions.length) {
-      loadQuestion();
+        currentQuestion++;
+        if (currentQuestion < questions.length) {
+            loadQuestion();
+        } else {
+            finishTest();
+        }
     } else {
-      finishTest();
+        alert("Please select an answer.");
     }
-  } else {
-    alert("Please select an answer.");
-  }
 }
 
 function finishTest() {
-  let correctAnswers = 0;
-  answers.forEach((answer) => {
-    if (parseInt(answer.selected) === answer.correct) {
-      correctAnswers++;
-    }
-  });
+    let correctAnswers = 0;
+    answers.forEach((answer) => {
+        if (parseInt(answer.selected) === answer.correct) {
+            correctAnswers++;
+        }
+    });
 
-  const score = (correctAnswers / questions.length) * 100;
-  const result = document.getElementById("result");
-  result.innerHTML = `
+    const score = (correctAnswers / questions.length) * 100;
+    const result = document.getElementById("result");
+    result.innerHTML = `
         <h2>Your Score: ${score.toFixed(2)}%</h2>
-        <p>${score >= 98 ? "Pass" : "Fail"}</p>
+        <p>${score >= 98 ? "Pass 😊" : "Fail 😢"}</p>
     `;
-  result.style.display = "block";
-  document.getElementById("export").style.display = "block";
-  document.getElementById("nextBtn").style.display = "none";
+    result.style.display = "block";
+    document.getElementById("export").style.display = "block";
+    document.getElementById("nextBtn").style.display = "none";
 }
 
 function exportResults() {
-  const { jsPDF } = window.jspdf;
-  const doc = new jsPDF();
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
 
-  // Add title
-  doc.setFontSize(20);
-  doc.text("FleetCam Bureau Agent Test Results", 10, 20);
+    // Calculate score
+    let correctAnswers = 0;
+    answers.forEach((answer) => {
+        if (parseInt(answer.selected) === answer.correct) {
+            correctAnswers++;
+        }
+    });
+    const score = (correctAnswers / questions.length) * 100;
 
-  // Add agent information
-  doc.setFontSize(12);
-  doc.text(`Agent Name: ${agentName}`, 10, 30);
-  doc.text(`Agent Email: ${agentEmail}`, 10, 40);
+    // Add title
+    doc.setFontSize(20);
+    doc.text("FleetCam Bureau Agent Test Results", 10, 20);
 
-  // Add results
-  let y = 50;
-  answers.forEach((answer, index) => {
-    const question = `Question ${index + 1}: ${answer.question}`;
-    const selected = `Your Answer: ${answer.selected}`;
-    const correct = `Correct Answer: ${answer.correct}`;
-    const isCorrect = parseInt(answer.selected) === answer.correct ? "Correct" : "Incorrect";
-    const timeTaken = `Time Taken: ${answer.timeTaken.toFixed(2)} seconds`;
+    // Add agent information and total percentage
+    doc.setFontSize(12);
+    doc.text(`Agent Name: ${agentName}`, 10, 30);
+    doc.text(`Agent Email: ${agentEmail}`, 10, 40);
+    doc.text(`Total Score: ${score.toFixed(2)}% ${score >= 98 ? "😊 (Pass)" : "😢 (Fail)"}`, 10, 50);
 
-    doc.text(question, 10, y);
-    doc.text(selected, 10, y + 10);
-    doc.text(correct, 10, y + 20);
-    doc.text(`Result: ${isCorrect}`, 10, y + 30);
-    doc.text(timeTaken, 10, y + 40);
+    // Add results
+    let y = 60;
+    answers.forEach((answer, index) => {
+        const question = `Question ${index + 1}: ${answer.question}`;
+        const selected = `Your Answer: ${questions[currentQuestion - answers.length + index].options[answer.selected]}`;
+        const correct = `Correct Answer: ${questions[currentQuestion - answers.length + index].options[answer.correct]}`;
+        const isCorrect = parseInt(answer.selected) === answer.correct ? "Correct" : "Incorrect";
+        const timeTaken = `Time Taken: ${answer.timeTaken.toFixed(2)} seconds`;
 
-    y += 50; // Move down for the next question
+        doc.text(question, 10, y);
+        doc.text(selected, 10, y + 10);
+        doc.text(correct, 10, y + 20);
+        doc.text(`Result: ${isCorrect}`, 10, y + 30);
+        doc.text(timeTaken, 10, y + 40);
 
-    // Add a new page if we're running out of space
-    if (y > 280) {
-      doc.addPage();
-      y = 10;
-    }
-  });
+        y += 50;
 
-  // Save the PDF
-  doc.save(`${agentName}_test_results.pdf`);
+        if (y > 280) {
+            doc.addPage();
+            y = 10;
+        }
+    });
+
+    // Save the PDF
+    doc.save(`${agentName}_test_results.pdf`);
 }
