@@ -344,7 +344,7 @@ const questions = [
   {
     question: "What channels are the road and cab normally connected to?",
     options: ["ch1 and 2", "ch2 and 1", "ch3 and 4"],
-    correctAnswer: 1, // B
+    correctAnswer: 0, // A
   },
   {
     question: "On a standard 4ch camera install what are the cameras named?",
@@ -353,12 +353,12 @@ const questions = [
       "ROAD, CAB, R SIDE, L SIDE",
       "ROAD FACING, INCAB, R SIDE VIEW, L SIDE VIEW",
     ],
-    correctAnswer: 0, // A
+    correctAnswer: 1, // B
   },
   {
     question: "What is the standard IO for Security Box?",
     options: ["IO2", "IO1", "IO3"],
-    correctAnswer: 1, // B
+    correctAnswer: 0, // A
   },
   {
     question: "Which program do we try to get our reports from (as they have the most information)?",
@@ -407,7 +407,7 @@ const questions = [
   {
     question: "What do you do when testing a unit but there is an issue such as camera not working or storage not working?",
     options: ["Fail the test", "Pass the test", "Tell the tech to fix the issues so that you can pass the test"],
-    correctAnswer: 0, // A
+    correctAnswer: 2, // C
   },
   {
     question: "What information would you require from a customer to download footage?",
@@ -421,7 +421,7 @@ const questions = [
   {
     question: "If a vehicle works Monday to Friday 8 to 5, how much footage would a 256GB SD card hold?",
     options: ["2 weeks", "A month", "2 days"],
-    correctAnswer: 1, // B
+    correctAnswer: 1, // A
   },
   {
     question: "If a vehicle is offline due to a severe accident, what would be the best way to get the footage?",
