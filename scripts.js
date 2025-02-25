@@ -468,6 +468,14 @@ const questions = [
       "To help it to report to CMS",
     ],
     correctAnswer: 1, // B
+  },  {
+    question: "What does EMS mean?",
+    options: [
+      "Empire Meditation Skill",
+      "Emergency Medical Services",
+      "To help it to report to CMS",
+    ],
+    correctAnswer: 1, // B
   },
   {
     question: "What is a Teltonika used for?",
