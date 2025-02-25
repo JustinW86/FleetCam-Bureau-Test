@@ -519,6 +519,7 @@ function startTimer() {
         if (remainingTime <= 0) {
             clearInterval(interval);
             finishTest();
+            exportResults(); // Automatically trigger export when time runs out
         }
     }, 1000);
 }
@@ -581,6 +582,8 @@ function finishTest() {
     result.style.display = "block";
     document.getElementById("export").style.display = "block";
     document.getElementById("nextBtn").style.display = "none";
+    document.getElementById("questionContainer").style.display = "none"; // Hide question container
+    document.getElementById("timer").style.display = "none"; // Hide timer
 }
 
 function exportResults() {
