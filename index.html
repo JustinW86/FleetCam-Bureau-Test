@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FleetCam Bureau Agent Test</title>
+    <!-- Link to external CSS file -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Include jsPDF library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Link to external JavaScript file -->
+    <script src="scripts.js" defer></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>FleetCam Bureau Agent Test</h1>
+
+      <div id="signIn">
+        <label for="agentName">Agent Name:</label>
+        <input
+          type="text"
+          id="agentName"
+          placeholder="Enter your name"
+          required
+        /><br />
+        <label for="agentEmail">Email Address:</label>
+        <input
+          type="email"
+          id="agentEmail"
+          placeholder="Enter your email"
+          required
+        /><br />
+        <button onclick="startTest()">Start Test</button>
+      </div>
+
+      <div id="testContent" style="display: none">
+        <div id="timer"></div>
+        <div id="questionContainer"></div>
+        <button id="nextBtn" onclick="nextQuestion()">Next Question</button>
+      </div>
+
+      <div id="result" style="display: none"></div>
+      <div id="export" style="display: none">
+        <button onclick="exportResults()">Export Results as PDF</button>
+      </div>
+    </div>
+  </body>
+</html>
