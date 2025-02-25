@@ -609,17 +609,35 @@ function exportResults() {
     // Add results
     let y = 60;
     answers.forEach((answer, index) => {
-        const question = `Question ${index + 1}: ${answer.question}`;
-        const selected = `Your Answer: ${questions[currentQuestion - answers.length + index].options[answer.selected]}`;
-        const correct = `Correct Answer: ${questions[currentQuestion - answers.length + index].options[answer.correct]}`;
-        const isCorrect = parseInt(answer.selected) === answer.correct ? "Correct" : "Incorrect";
-        const timeTaken = `Time Taken: ${answer.timeTaken.toFixed(2)} seconds`;
+        const questionIndex = currentQuestion - answers.length + index;
+        const question = questions[questionIndex];
+        
+        // Question text
+        doc.setFontSize(12);
+        doc.text(`Question ${index + 1}: ${answer.question}`, 10, y);
+        
+        // Your Answer
+        const selectedText = `Your Answer: ${question.options[answer.selected]}`;
+        if (parseInt(answer.selected) === answer.correct) {
+            doc.setFillColor(0, 255, 0); // Green for correct
+        } else {
+            doc.setFillColor(255, 0, 0); // Red for incorrect
+        }
+        doc.rect(10, y + 5, 190, 10, 'F'); // Background rectangle
+        doc.setTextColor(0, 0, 0); // Black text
+        doc.text(selectedText, 10, y + 12);
 
-        doc.text(question, 10, y);
-        doc.text(selected, 10, y + 10);
-        doc.text(correct, 10, y + 20);
-        doc.text(`Result: ${isCorrect}`, 10, y + 30);
-        doc.text(timeTaken, 10, y + 40);
+        // Correct Answer (always green)
+        const correctText = `Correct Answer: ${question.options[answer.correct]}`;
+        doc.setFillColor(0, 255, 0); // Green for correct
+        doc.rect(10, y + 15, 190, 10, 'F'); // Background rectangle
+        doc.setTextColor(0, 0, 0); // Black text
+        doc.text(correctText, 10, y + 22);
+
+        // Result and Time Taken (no highlight)
+        const isCorrect = parseInt(answer.selected) === answer.correct ? "Correct" : "Incorrect";
+        doc.text(`Result: ${isCorrect}`, 10, y + 32);
+        doc.text(`Time Taken: ${answer.timeTaken.toFixed(2)} seconds`, 10, y + 42);
 
         y += 50;
 
