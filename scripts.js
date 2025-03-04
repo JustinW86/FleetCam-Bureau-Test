@@ -484,6 +484,33 @@ const questions = [
   },
 ];
 
+// Function to generate a unique token
+function generateToken() {
+    const randomString = Math.random().toString(36).substring(2, 15);
+    const timestamp = Date.now();
+    const expires = timestamp + totalTime; // Token expires after 30 minutes
+    return `${randomString}-${expires}`;
+}
+
+// Function to validate token
+function validateToken(token) {
+    if (!token) return false;
+    const [_, expires] = token.split('-');
+    const expiryTime = parseInt(expires, 10);
+    return Date.now() <= expiryTime;
+}
+
+// Check token on page load
+window.onload = function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get('token');
+    if (!validateToken(token)) {
+        alert("This test session has expired or is invalid. Please start a new test.");
+        document.body.innerHTML = "<h1>Test Session Expired</h1><p>Please request a new test link.</p>";
+        return;
+    }
+};
+
 function startTest() {
     agentName = document.getElementById("agentName").value;
     agentEmail = document.getElementById("agentEmail").value;
@@ -501,6 +528,11 @@ function startTest() {
 
     takenAgents.push(agentName);
     localStorage.setItem("takenAgents", JSON.stringify(takenAgents));
+
+    // Generate and append token to URL
+    const token = generateToken();
+    const newUrl = `${window.location.pathname}?token=${token}`;
+    window.history.pushState({ path: newUrl }, '', newUrl);
 
     document.getElementById("signIn").style.display = "none";
     document.getElementById("testContent").style.display = "block";
@@ -582,8 +614,8 @@ function finishTest() {
     result.style.display = "block";
     document.getElementById("export").style.display = "block";
     document.getElementById("nextBtn").style.display = "none";
-    document.getElementById("questionContainer").style.display = "none"; // Hide question container
-    document.getElementById("timer").style.display = "none"; // Hide timer
+    document.getElementById("questionContainer").style.display = "none";
+    document.getElementById("timer").style.display = "none";
 }
 
 function exportResults() {
@@ -666,7 +698,6 @@ function exportResults() {
 
         if (y > 260) {
             doc.addPage();
-            // Add header on new pages
             doc.setFillColor(...fleetCamBlue);
             doc.rect(0, 0, 210, 30, 'F');
             doc.setTextColor(255, 255, 255);
