@@ -484,33 +484,6 @@ const questions = [
   },
 ];
 
-// Function to generate a unique token
-function generateToken() {
-    const randomString = Math.random().toString(36).substring(2, 15);
-    const timestamp = Date.now();
-    const expires = timestamp + totalTime; // Token expires after 30 minutes
-    return `${randomString}-${expires}`;
-}
-
-// Function to validate token
-function validateToken(token) {
-    if (!token) return false;
-    const [_, expires] = token.split('-');
-    const expiryTime = parseInt(expires, 10);
-    return Date.now() <= expiryTime;
-}
-
-// Check token on page load
-window.onload = function() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const token = urlParams.get('token');
-    if (!validateToken(token)) {
-        alert("This test session has expired or is invalid. Please start a new test.");
-        document.body.innerHTML = "<h1>Test Session Expired</h1><p>Please request a new test link.</p>";
-        return;
-    }
-};
-
 function startTest() {
     agentName = document.getElementById("agentName").value;
     agentEmail = document.getElementById("agentEmail").value;
@@ -528,11 +501,6 @@ function startTest() {
 
     takenAgents.push(agentName);
     localStorage.setItem("takenAgents", JSON.stringify(takenAgents));
-
-    // Generate and append token to URL
-    const token = generateToken();
-    const newUrl = `${window.location.pathname}?token=${token}`;
-    window.history.pushState({ path: newUrl }, '', newUrl);
 
     document.getElementById("signIn").style.display = "none";
     document.getElementById("testContent").style.display = "block";
