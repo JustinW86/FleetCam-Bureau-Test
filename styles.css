@@ -11,7 +11,8 @@
   --primary-hover: #0056b3;
   --background-color: #1e2a44; /* Dark blue base */
   --card-background: #ffffff;
-  --text-color: #ffffff; /* White text for dark theme */
+  --text-color: #ffffff; /* White text for body against dark background */
+  --text-color-dark: #1e2a44; /* Dark blue text for container */
   --shadow-color: rgba(0, 0, 0, 0.2);
   --transition-speed: 0.3s;
   --wave-color-1: #2a3b66;
@@ -81,6 +82,7 @@ body::after {
               box-shadow var(--transition-speed) ease;
   position: relative;
   z-index: 1;
+  color: var(--text-color-dark); /* Dark blue text inside container */
 }
 
 .container:hover {
@@ -94,10 +96,10 @@ h1 {
   margin-bottom: 2rem;
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: 700;
-  color: var(--text-color);
+  color: var(--text-color-dark);
   letter-spacing: -0.025em;
   position: relative;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  text-shadow: none; /* Remove shadow as it's now on white background */
 }
 
 h1::after {
@@ -140,6 +142,7 @@ label {
   cursor: pointer;
   font-size: 1.1rem;
   transition: color var(--transition-speed) ease;
+  color: var(--text-color-dark);
 }
 
 label:hover {
@@ -235,6 +238,7 @@ button:hover {
   border-radius: 8px;
   background: rgba(245, 247, 250, 0.8);
   animation: fadeIn 0.5s ease-in;
+  color: var(--text-color-dark);
 }
 
 #timer {
@@ -261,6 +265,7 @@ button:hover {
   margin-top: 2rem;
   text-align: center;
   padding: 1rem;
+  color: var(--text-color-dark);
 }
 
 /* Responsive Design */
