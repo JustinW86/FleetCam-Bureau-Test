@@ -1,71 +1,193 @@
+/* Global Reset and Base Styles */
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
-  }
-  
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Define CSS variables for consistent theming */
+  --primary-color: #007bff;
+  --primary-hover: #0056b3;
+  --background-color: #f8f9fa;
+  --card-background: #ffffff;
+  --text-color: #2d3748;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+  --transition-speed: 0.3s;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  line-height: 1.6;
+  padding: clamp(1rem, 3vw, 3rem);
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+/* Container Styles */
+.container {
+  max-width: 900px;
+  width: 100%;
+  margin: 0 auto;
+  background-color: var(--card-background);
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 6px var(--shadow-color), 
+              0 1px 3px rgba(0, 0, 0, 0.08);
+  transition: transform var(--transition-speed) ease;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+}
+
+/* Typography */
+h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-color);
+  letter-spacing: -0.025em;
+}
+
+/* Question Styles */
+.question {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(245, 247, 250, 0.5);
+  border-radius: 8px;
+  transition: background var(--transition-speed) ease;
+}
+
+.question:hover {
+  background: rgba(245, 247, 250, 1);
+}
+
+label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.75rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+/* Radio Inputs */
+input[type="radio"] {
+  appearance: none;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-right: 0.75rem;
+  border: 2px solid var(--primary-color);
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.625rem;
+  height: 0.625rem;
+  background: var(--primary-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+input[type="radio"]:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styles */
+button {
+  background: linear-gradient(135deg, var(--primary-color), #0069d9);
+  color: white;
+  padding: 0.875rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--primary-hover), #004085);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Result and Timer */
+#result {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.25rem;
+  font-weight: 500;
+  padding: 1rem;
+  border-radius: 8px;
+  background: rgba(245, 247, 250, 0.5);
+}
+
+#timer {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* Export Section */
+#export {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .container {
-    max-width: 800px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
   }
-  
+
   h1 {
-    text-align: center;
-    margin-bottom: 20px;
+      font-size: 1.75rem;
   }
-  
-  .question {
-    margin-bottom: 15px;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  input[type="radio"] {
-    margin-right: 10px;
-  }
-  
+
   button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
-    font-size: 16px;
+      font-size: 1rem;
+      padding: 0.75rem 1rem;
   }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
-  #result {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 18px;
-  }
-  
+
   #timer {
-    font-size: 20px;
-    text-align: center;
-    margin-bottom: 20px;
+      font-size: 1.25rem;
   }
-  
-  #export {
-    margin-top: 20px;
-    text-align: center;
+}
+
+@media (max-width: 480px) {
+  body {
+      padding: 1rem;
   }
+
+  .question {
+      padding: 0.75rem;
+  }
+
+  label {
+      font-size: 1rem;
+  }
+}
