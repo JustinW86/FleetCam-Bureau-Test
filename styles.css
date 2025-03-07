@@ -9,15 +9,16 @@
   /* Theme Variables */
   --primary-color: #007bff;
   --primary-hover: #0056b3;
-  --background-color: #1e2a44; /* Dark blue base */
+  --background-color: #1e2a44;
   --card-background: #ffffff;
-  --text-color: #ffffff; /* White text for body against dark background */
-  --text-color-dark: #1e2a44; /* Dark blue text for container */
+  --text-color: #ffffff;
+  --text-color-dark: #1e2a44;
   --shadow-color: rgba(0, 0, 0, 0.2);
   --transition-speed: 0.3s;
   --wave-color-1: #2a3b66;
   --wave-color-2: #1e2a44;
   --wave-color-3: #15214a;
+  --timer-glow: #ff0000; /* Red for timer */
 }
 
 body {
@@ -82,7 +83,7 @@ body::after {
               box-shadow var(--transition-speed) ease;
   position: relative;
   z-index: 1;
-  color: var(--text-color-dark); /* Dark blue text inside container */
+  color: var(--text-color-dark);
 }
 
 .container:hover {
@@ -99,7 +100,6 @@ h1 {
   color: var(--text-color-dark);
   letter-spacing: -0.025em;
   position: relative;
-  text-shadow: none; /* Remove shadow as it's now on white background */
 }
 
 h1::after {
@@ -228,7 +228,40 @@ button:hover {
   box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
 }
 
-/* Result and Timer */
+/* Timer Styles */
+#timer {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: var(--timer-glow);
+  text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 
+               0 0 20px rgba(255, 0, 0, 0.5);
+  animation: pulseGlow 1.5s ease-in-out infinite;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+@keyframes pulseGlow {
+  0% {
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 
+                  0 0 20px rgba(255, 0, 0, 0.5);
+  }
+  50% {
+      transform: scale(1.05);
+      text-shadow: 0 0 15px rgba(255, 0, 0, 1), 
+                  0 0 30px rgba(255, 0, 0, 0.7);
+  }
+  100% {
+      transform: scale(1);
+      text-shadow: 0 0 10px rgba(255, 0, 0, 0.8), 
+                  0 0 20px rgba(255, 0, 0, 0.5);
+  }
+}
+
+/* Result and Export */
 #result {
   text-align: center;
   margin-top: 2rem;
@@ -241,26 +274,6 @@ button:hover {
   color: var(--text-color-dark);
 }
 
-#timer {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  color: var(--primary-color);
-  animation: pulseText 2s infinite;
-}
-
-@keyframes pulseText {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.02); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-/* Export Section */
 #export {
   margin-top: 2rem;
   text-align: center;
@@ -268,14 +281,21 @@ button:hover {
   color: var(--text-color-dark);
 }
 
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .container { padding: 1.5rem; }
   h1 { font-size: 1.75rem; }
   button { font-size: 1rem; }
+  #timer { font-size: 1.25rem; }
 }
 
 @media (max-width: 480px) {
   body { padding: 1rem; }
   .question { padding: 0.75rem; }
+  #timer { font-size: 1rem; }
 }
