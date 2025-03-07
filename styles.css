@@ -20,14 +20,7 @@
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
-  background: linear-gradient(
-      45deg,
-      var(--gradient-start),
-      var(--gradient-end),
-      var(--background-color)
-  );
-  background-size: 200% 200%;
-  animation: gradientFlow 15s ease infinite;
+  background: var(--background-color);
   color: var(--text-color);
   line-height: 1.6;
   padding: clamp(1rem, 3vw, 3rem);
@@ -38,42 +31,47 @@ body {
   overflow-x: hidden;
 }
 
-/* Background Animation */
-@keyframes gradientFlow {
-  0% {
-      background-position: 0% 50%;
-  }
-  50% {
-      background-position: 100% 50%;
-  }
-  100% {
-      background-position: 0% 50%;
-  }
-}
-
-/* Floating Particles Effect */
+/* Animated Background Layer */
 body::before {
   content: '';
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
-  opacity: 0.3;
-  animation: pulse 8s ease-in-out infinite;
-  pointer-events: none;
+  background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+  opacity: 0.2;
+  z-index: -2;
+  animation: gradientFlow 15s ease infinite;
 }
 
-@keyframes pulse {
-  0%, 100% {
-      transform: scale(1);
-      opacity: 0.3;
-  }
-  50% {
-      transform: scale(1.05);
-      opacity: 0.5;
-  }
+/* Animated SVG Background */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800"><defs><filter id="glow"><feGaussianBlur stdDeviation="2.5" result="coloredBlur"/><feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g opacity="0.15"><circle cx="200" cy="200" r="50" fill="none" stroke="%23007bff" stroke-width="2" filter="url(%23glow)"><animate attributeName="r" values="50;70;50" dur="6s" repeatCount="indefinite"/></circle><circle cx="600" cy="600" r="70" fill="none" stroke="%233498db" stroke-width="2" filter="url(%23glow)"><animate attributeName="r" values="70;90;70" dur="8s" repeatCount="indefinite"/></circle><path d="M400 100 L450 150 L400 200 L350 150 Z" fill="none" stroke="%23007bff" stroke-width="2" filter="url(%23glow)"><animateTransform attributeName="transform" type="rotate" from="0 400 150" to="360 400 150" dur="10s" repeatCount="indefinite"/></path></g></svg>');
+  background-size: cover;
+  background-position: center;
+  z-index: -1;
+  animation: subtleMove 20s ease-in-out infinite;
+}
+
+/* Animations */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes subtleMove {
+  0%, 100% { transform: scale(1) translate(0, 0); }
+  25% { transform: scale(1.02) translate(10px, -10px); }
+  50% { transform: scale(1.03) translate(-10px, 10px); }
+  75% { transform: scale(1.02) translate(5px, 5px); }
 }
 
 /* Container Styles */
@@ -137,14 +135,8 @@ h1::after {
 }
 
 @keyframes slideIn {
-  from {
-      opacity: 0;
-      transform: translateY(20px);
-  }
-  to {
-      opacity: 1;
-      transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 label {
@@ -192,12 +184,8 @@ input[type="radio"]:checked::after {
 }
 
 @keyframes popIn {
-  0% {
-      transform: translate(-50%, -50%) scale(0);
-  }
-  100% {
-      transform: translate(-50%, -50%) scale(1);
-  }
+  0% { transform: translate(-50%, -50%) scale(0); }
+  100% { transform: translate(-50%, -50%) scale(1); }
 }
 
 /* Button Styles */
@@ -265,21 +253,13 @@ button:hover {
 }
 
 @keyframes pulseText {
-  0%, 100% {
-      transform: scale(1);
-  }
-  50% {
-      transform: scale(1.02);
-  }
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
 }
 
 @keyframes fadeIn {
-  from {
-      opacity: 0;
-  }
-  to {
-      opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 /* Export Section */
@@ -294,22 +274,11 @@ button:hover {
   .container {
       padding: 1.5rem;
   }
-
-  h1 {
-      font-size: 1.75rem;
-  }
-
-  button {
-      font-size: 1rem;
-  }
+  h1 { font-size: 1.75rem; }
+  button { font-size: 1rem; }
 }
 
 @media (max-width: 480px) {
-  body {
-      padding: 1rem;
-  }
-
-  .question {
-      padding: 0.75rem;
-  }
+  body { padding: 1rem; }
+  .question { padding: 0.75rem; }
 }
