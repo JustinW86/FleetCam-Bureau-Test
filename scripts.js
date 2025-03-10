@@ -509,7 +509,7 @@ function startTest() {
 }
 
 function startTimer() {
-    const timerElement = document.getElementById("timer");
+    const timerElement = document.getElementById("root.timer");
     const interval = setInterval(function () {
         remainingTime -= 1000;
         const minutes = Math.floor(remainingTime / 60000);
